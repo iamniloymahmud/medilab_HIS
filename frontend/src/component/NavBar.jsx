@@ -6,12 +6,20 @@ import {
   Typography,
   IconButton,
   Button,
+  BottomNavigation,
+  BottomNavigationAction,
 } from "@mui/material";
-import { LightModeOutlined, DarkModeOutlined } from "@mui/icons-material";
+import {
+  LightModeOutlined,
+  DarkModeOutlined,
+  Restore,
+  Favorite,
+} from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "../redux/Slices/Global";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import BottomNav from "./BottomNav";
 
 const navList = [
   {
@@ -19,9 +27,6 @@ const navList = [
   },
   {
     text: "Appointment",
-  },
-  {
-    text: "Services",
   },
   {
     text: "About Us",
@@ -37,15 +42,12 @@ const NavBar = () => {
   const [active, setActive] = useState("");
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const user = useSelector(state => state.global.user);
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
   return (
-    <Box
-      display={"flex"}
-      width={"100%"}
-      height={"100%"}
-    >
+    <Box display={"flex"} width={"100%"} height={"100%"}>
       <Box flexGrow={1}>
         <AppBar>
           <Toolbar
@@ -56,6 +58,7 @@ const NavBar = () => {
               justifyContent: "space-between",
             }}
           >
+            {/* Right Side */}
             <Box
               sx={{
                 display: "flex",
@@ -76,6 +79,7 @@ const NavBar = () => {
                 {import.meta.env.VITE_APP_NAME}
               </Typography>
             </Box>
+            {/* Middle Side */}
             <Box
               sx={{
                 display: "flex",
@@ -104,6 +108,7 @@ const NavBar = () => {
                 );
               })}
             </Box>
+            {/* Left Side */}
             <Box sx={{ display: "flex", gap: 3 }}>
               <IconButton onClick={() => dispatch(setMode())}>
                 {theme.palette.mode === "dark" ? (
@@ -112,12 +117,21 @@ const NavBar = () => {
                   <LightModeOutlined sx={{ fontSize: "25px" }} />
                 )}
               </IconButton>
-              <Button variant="outlined">Sign In</Button>
-              <Button variant="outlined">Register</Button>
+              <Button variant="outlined" onClick={() => {
+                setActive('signin');
+                navigate('/signin');
+              }}>Sign In</Button>
+              <Button variant="outlined" onClick={() => {
+                setActive('signup');
+                navigate('/signup');
+              }}>Register</Button>
             </Box>
           </Toolbar>
         </AppBar>
         <Outlet />
+        <BottomNavigation>
+          <BottomNav />
+        </BottomNavigation>
       </Box>
     </Box>
   );

@@ -1,47 +1,44 @@
 import {
+  Alert,
   Box,
   Button,
   Container,
-  TextField,
-  Typography,
-  useTheme,
-  Alert,
-  Snackbar,
-  Select,
-  MenuItem,
   FormControl,
   InputLabel,
+  MenuItem,
+  Select,
+  Snackbar,
+  TextField,
+  useTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { DatePicker } from "@mui/x-date-pickers";
-import moment from "moment";
-import { useGetAppointmentMutation, useGetDoctorsQuery } from "../../redux/Api/patientApi";
+import Header from "../component/Header";
+import { useLoginMutation } from "../redux/Api/loginApi";
 
-const AppointmentForm = () => {
+const SignIn = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
-  const [doc,setDoc] = useState("");
-  const {data: doctors, error: docError} = useGetDoctorsQuery();
-  const [getAppointment, {data,isLoading, isError,error, isSuccess}] = useGetAppointmentMutation();
-  useEffect(() => {
-    if(doctors?.length){
-      setDoc(doctors[0]);
-    }
-  },  [doctors])
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("patient");
+  const [login, {data,isSuccess,error, isError}] = useLoginMutation();
   const handleSubmit = () => {
-    getAppointment({
-      email: email,
-      doctor: doc,
-    })
+    login({
+      email,
+      role,
+      password,
+    });
   };
 
   useEffect(() => {
-    if(isSuccess){
+    if (isSuccess) {
       setOpen(true);
-      setEmail('');
+      setEmail("");
+      setPassword("");
+      setRole("patient");
     }
   }, [isSuccess]);
+
   return (
     <Container
       mx={"auto"}
@@ -50,14 +47,17 @@ const AppointmentForm = () => {
         flexDirection: "column",
         display: "flex",
         my: "4.5rem",
+        py: "2rem",
       }}
     >
+        <Header title={`Sign In to ${import.meta.env.VITE_APP_NAME}`} />
       <Box
         sx={{
           "& .MuiTextField-root": { width: "320px" },
           display: "flex",
           flexDirection: "column",
           borderRadius: "0.55rem",
+          pt: 2,
           alignItems: "center",
         }}
         noValidate
@@ -83,17 +83,36 @@ const AppointmentForm = () => {
             },
           }}
         />
-        {/* Doctor Name */}
-        {doctors?.length && <FormControl fullWidth>
-          <InputLabel>Doctors</InputLabel>
-          <Select label="Role" fullWidth value={doc} onChange={(e) => setDoc(e.target.value)}>
-            {doctors?.map((docs, idx) => {
-              return <MenuItem key={idx} value={docs} selected={!idx}>{docs.name}</MenuItem>
-            })}
+        {/* Password */}
+        <TextField
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          label="Password"
+          type="password"
+          error={error?.data?.password}
+          helperText={
+            error?.data?.password ? error?.data?.password?.msg : "Password"
+          }
+          InputLabelProps={{
+            style: {
+              color: theme.palette.text.primary,
+              fontSize: "17px",
+              borderColor: theme.palette.text.primary,
+            },
+          }}
+        />
+        {/* Role */}
+        <FormControl fullWidth>
+          <InputLabel>Role</InputLabel>
+          <Select value={role} label="Role" fullWidth onChange={(e) => setRole(e.target.value)}>
+            <MenuItem value={"patient"} selected>Patient</MenuItem>
+            <MenuItem value={"doctor"}>Doctor</MenuItem>
+            <MenuItem value={"admin"}>Admin</MenuItem>
           </Select>
-        </FormControl>}
+        </FormControl>
         <Button color="success" variant="contained" onClick={() => handleSubmit()}>
-          Submit
+          Sign In
         </Button>
       </Box>
       <Snackbar
@@ -113,4 +132,4 @@ const AppointmentForm = () => {
   );
 };
 
-export default AppointmentForm;
+export default SignIn;
