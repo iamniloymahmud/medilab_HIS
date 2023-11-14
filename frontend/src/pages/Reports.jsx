@@ -25,7 +25,7 @@ const Reports = () => {
         <Header title={`${type} files`} />
         <Button variant="outlined">
           <Link
-            href="http://localhost:8080/tests/pacs/viewer.html"
+            href={import.meta.nev.VITE_APP_DICOM}
             underline="none"
           >
             Analyze Your Report
