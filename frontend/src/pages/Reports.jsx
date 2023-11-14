@@ -25,7 +25,7 @@ const Reports = () => {
         <Header title={`${type} files`} />
         <Button variant="outlined">
           <Link
-            href={import.meta.nev.VITE_APP_DICOM}
+            href={import.meta.env.VITE_APP_DICOM}
             underline="none"
           >
             Analyze Your Report
