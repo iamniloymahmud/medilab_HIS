@@ -1,7 +1,3 @@
-// Medilab Website
-// Jaied Bin Mahmud
-// KUET BME '18
-
 //External Imports
 const express = require("express");
 const mongoose = require("mongoose");
@@ -15,6 +11,7 @@ const {notFound, errorHandler} = require('./controller/error/error');
 const { patientRouter } = require("./routes/patient");
 const {adminRouter} = require('./routes/admin');
 const { verify } = require("./util/verifyjwt");
+const { doctorRouter } = require("./routes/doctor");
 
 //Configuration
 dotenv.config();
@@ -36,6 +33,7 @@ app.get("/", (req, res) => {
 app.use('/patient', patientRouter);
 app.use('/admin', adminRouter);
 app.use('/verify', verify);
+app.use('/doctor', doctorRouter);
 
 
 //Error Handlers

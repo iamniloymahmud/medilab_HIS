@@ -31,7 +31,7 @@ const ContactUs = () => {
             variant="h5"
             sx={{ px: "2rem" }}
           >
-            Welcome to Medilab Hospital's Contact Us page! We are dedicated to
+            Welcome to {import.meta.env.VITE_APP_NAME}'s Contact Us page! We are dedicated to
             providing exceptional healthcare services and ensuring that your
             inquiries, concerns, and feedback are addressed promptly. Please
             feel free to reach out to us through the following channels:
@@ -73,7 +73,7 @@ const ContactUs = () => {
             welcome any suggestions or comments you might have. Please use our
             contact details or visit our hospital to speak with our customer
             service representatives. Stay updated with our latest news, health tips, and events by
-            following us on our social media platforms. At Medilab Hospital, we
+            following us on our social media platforms. At {import.meta.env.VITE_APP_NAME}, we
             prioritize your well-being and are committed to providing top-notch
             healthcare services. Thank you for choosing us. We look forward to
             serving you and meeting your healthcare needs. Find us at:

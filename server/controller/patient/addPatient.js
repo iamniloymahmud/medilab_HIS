@@ -55,7 +55,13 @@ const addPaitent = async (req, res) => {
     const user = await PatientModel.find({ email: req.body.email });
     const pass = await bcrypt.hash(req.body.password,10);
     const counter = await counterModel.find({});
-    console.log(counter[0]);
+    if(!counter){
+      const newData = new counterModel({
+        doctorCounter: 0,
+        patientCounter: 0,
+      });
+      await newData.save();
+    }
     if(user?.length > 0){
       res.status(400).json({
         email: {

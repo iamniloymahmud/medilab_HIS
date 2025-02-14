@@ -2,7 +2,6 @@ import {
   createTheme,
   ThemeProvider,
   CssBaseline,
-  Typography,
 } from "@mui/material";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
@@ -21,6 +20,7 @@ import PublicRoute from "./util/PublicRoute";
 import PrivateRoute from "./util/PrivateRoute";
 import Patient from "./pages/Patient";
 import Reports from "./pages/Reports";
+import Doctor from "./pages/Doctor";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -65,6 +65,7 @@ function App() {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/patient" element={<Patient />} />
                 <Route path="/patient/:type" element={<Reports />} />
+                <Route path="/doctor" element={<Doctor />} />
               </Route>
             </Routes>
           </ThemeProvider>

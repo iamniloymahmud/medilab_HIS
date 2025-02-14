@@ -110,13 +110,13 @@ const NavBar = () => {
             </Box>
             {/* Left Side */}
             <Box sx={{ display: "flex", gap: 3 }}>
-              <IconButton onClick={() => dispatch(setMode())}>
+              {/* <IconButton onClick={() => dispatch(setMode())}>
                 {theme.palette.mode === "dark" ? (
                   <DarkModeOutlined sx={{ fontSize: "25px" }} />
                 ) : (
                   <LightModeOutlined sx={{ fontSize: "25px" }} />
                 )}
-              </IconButton>
+              </IconButton> */}
               <Button variant="outlined" onClick={() => {
                 setActive('signin');
                 navigate('/signin');

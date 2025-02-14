@@ -57,7 +57,6 @@ const addDoctor = async (req, res) => {
     const user = await doctorModel.find({ email: req.body.email });
     const pass = await bcrypt.hash(req.body.password, 10);
     const counter = await counterModel.find({});
-    console.log(counter[0]);
     if (user?.length > 0) {
       res.status(400).json({
         email: {

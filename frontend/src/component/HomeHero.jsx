@@ -35,7 +35,7 @@ const HomeHero = () => {
                 fontWeight: "bold",
               }}
             >
-              Welcome to MediLab Hospital
+              Welcome to {import.meta.env.VITE_APP_NAME}
             </Typography>
             <Typography
               mt={"10px"}

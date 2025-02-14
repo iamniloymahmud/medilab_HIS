@@ -25,7 +25,7 @@ const BottomNav = () => {
           </Box>
         </Grid>
         <Grid item xs={3}>
-          <Box
+          {/* <Box
             display={"flex"}
             flexDirection={"column"}
             alignItems={"center"}
@@ -39,7 +39,7 @@ const BottomNav = () => {
             <Typography variant="h6">Service</Typography>
             <Typography variant="h6">About Us</Typography>
             <Typography variant="h6">Contact Us</Typography>
-          </Box>
+          </Box> */}
         </Grid>
         <Grid item xs={3}>
           <Box
@@ -52,23 +52,23 @@ const BottomNav = () => {
               Hours
             </Typography>
             <Box width={'100%'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <Typography variant="h6" textAlign={'left'}>Monday</Typography>
                 <Typography variant="h6">9.00-18.00</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <Typography variant="h6">Tuesday</Typography>
                 <Typography variant="h6">9.00-18.00</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <Typography variant="h6">Wednesday</Typography>
                 <Typography variant="h6">9.00-18.00</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <Typography variant="h6">Thursday</Typography>
                 <Typography variant="h6">9.00-18.00</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <Typography variant="h6">Friday</Typography>
                 <Typography variant="h6">9.00-18.00</Typography>
               </Box>
@@ -86,15 +86,15 @@ const BottomNav = () => {
               Contact
             </Typography>
             <Box width={'100%'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <LocalPhone fontSize={"medium"}/>
                 <Typography variant="h6">+088-000-000-000</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <MailOutline fontSize="medium"/>
-                <Typography variant="h6">info@medilab.com</Typography>
+                <Typography variant="h6">info@kuet.com</Typography>
               </Box>
-              <Box width={'50%'} display={'flex'} justifyContent={'space-between'}>
+              <Box width={'60%'} display={'flex'} justifyContent={'space-between'}>
                 <LocationOn fontSize="medium" />
                 <Typography variant="h6">Khulna</Typography>
               </Box>

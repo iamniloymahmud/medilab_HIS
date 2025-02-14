@@ -26,11 +26,11 @@ const AboutUs = () => {
             Our Mission
           </Typography>
           <Typography mt={"10px"} textAlign={'justify'} variant="h5" sx={{ px: "2rem" }}>
-            At Medilab Hospital, our mission is to provide the highest quality
+            At {import.meta.env.VITE_APP_NAME}, our mission is to provide the highest quality
             healthcare services to our patients, delivered with compassion and
             dedication. We are committed to improving the health and well-being
             of our community by offering a wide range of medical services that
-            are both comprehensive and accessible.At Medilab Hospital, we
+            are both comprehensive and accessible.At {import.meta.env.VITE_APP_NAME}, we
             understand the trust our patients place in us, and we honor that
             trust by consistently delivering high-quality care that promotes
             health, healing, and hope. Our mission drives us to create a
@@ -49,7 +49,7 @@ const AboutUs = () => {
             Our Vision
           </Typography>
           <Typography mt={"10px"} variant="h5" textAlign={'justify'} sx={{ px: "2rem",}}>
-            Medilab Hospital aspires to be the leading healthcare institution in
+          {import.meta.env.VITE_APP_NAME} aspires to be the leading healthcare institution in
             our region, setting the standard for excellence in patient-centered
             care and medical innovation. We aim to be recognized for our
             exceptional clinical outcomes, state-of-the-art medical facilities,
@@ -114,7 +114,7 @@ const AboutUs = () => {
             hospital. We encourage feedback from patients and staff to identify
             areas for enhancement and strive for continuous growth and
             excellence. These core values guide our actions and decisions at
-            Medilab Hospital, shaping our culture and ensuring that we provide
+            {import.meta.env.VITE_APP_NAME}, shaping our culture and ensuring that we provide
             the highest quality healthcare services with integrity, compassion,
             and a commitment to excellence.
           </Typography>
