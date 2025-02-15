@@ -1,7 +1,7 @@
 const { multerUploader } = require("../util/uploader");
 const uploadFile = (req, res, next) => {
   const upload = multerUploader(
-    ["application/dicom", "application/octet-stream"],
+    ["application/dicom", "application/octet-stream", "image/jpeg", "image/png", "image/jpg"],
     1024 * 1024 * 150
   );
   upload.any()(req, res, (error) => {

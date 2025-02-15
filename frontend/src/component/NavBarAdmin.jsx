@@ -35,8 +35,8 @@ const NavBarAdmin = () => {
                 justifyContent: "space-between",
               }}
             >
-              <Typography>Name: {user?.name ? user.name : 'Admin'}</Typography>
-              <Typography>Role: {user?.role?.charAt(0)?.toUpperCase() + user?.role?.slice(1)}</Typography>
+              <Typography sx={{color: theme.palette.text.primary}}>Name: {user?.name ? user.name : 'Admin'}</Typography>
+              <Typography sx={{color: theme.palette.text.primary}}>Role: {user?.role?.charAt(0)?.toUpperCase() + user?.role?.slice(1)}</Typography>
             </Box>
           </Toolbar>
         </AppBar>

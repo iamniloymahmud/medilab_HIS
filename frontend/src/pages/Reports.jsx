@@ -49,9 +49,9 @@ const Reports = () => {
                   {moment(t.createdAt).format("DD MMMM, yy (hh:mm A)")}
                 </Typography>
                 <Button variant="outlined">
-                  <Link underline="none" href={`http://localhost:5000/${t.path}`}>
+                  <a underline="none" download href={`http://localhost:5000/download/${t.path}`}>
                     Download
-                  </Link>
+                  </a>
                 </Button>
               </Box>
             );

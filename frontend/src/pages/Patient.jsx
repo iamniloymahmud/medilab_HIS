@@ -102,6 +102,7 @@ const Patient = () => {
               justifyContent: "center",
               alignItems: "center",
               maxWidth: "320px",
+              cursor: "pointer",
             }}
           >
             <Box
@@ -121,6 +122,7 @@ const Patient = () => {
               justifyContent: "center",
               alignItems: "center",
               maxWidth: "320px",
+              cursor: "pointer",
             }}
           >
             <Box
@@ -140,6 +142,7 @@ const Patient = () => {
               justifyContent: "center",
               alignItems: "center",
               maxWidth: "320px",
+              cursor: "pointer",
             }}
           >
             <Box
@@ -159,6 +162,7 @@ const Patient = () => {
               justifyContent: "center",
               alignItems: "center",
               maxWidth: "320px",
+              cursor: "pointer",
             }}
           >
             <Box
